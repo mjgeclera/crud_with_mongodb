@@ -1,16 +1,22 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
 
-// Define the structure of a blog post
-const blogSchema = new Schema({
-  title: String,
-  body: String,
-  image: String,
+const blogSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true,
+  },
+  content: {
+    type: String,
+    required: true,
+  },
+  author: {
+    type: String,
+    default: "Anonymous",
+  },
   createdAt: {
     type: Date,
     default: Date.now,
   },
 });
 
-// Export the model
 module.exports = mongoose.model("Blog", blogSchema);
