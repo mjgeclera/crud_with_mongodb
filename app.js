@@ -20,7 +20,7 @@ mongoose
 app.use("/api/blogs", blogRouter);
 
 // fallback route (for 404s or SPA)
-app.get("/*", (req, res) => {
+app.use((req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
